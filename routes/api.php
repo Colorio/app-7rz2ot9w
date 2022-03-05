@@ -22,4 +22,6 @@ Route::namespace('\App\Http\Controllers\Api')->group(function(){
     Route::get('ping', function(){
         return response()->json(["status" => "connected", "time" => now()]);
     });
+
+    Route::resource('products', 'ProductsController')->only(["index","show","store","update","destroy"]);
 });
