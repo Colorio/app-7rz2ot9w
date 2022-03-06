@@ -11,4 +11,12 @@ class Inventory extends Model
 
     protected $table    = "inventory";
     protected $fillable = ['sku','amount'];
+
+    public static function rules(){
+        return [
+            'sku'    => ['required','min:5','max:255','exists:products','regex:/^[A-Za-z0-9\-]+$/'],
+            'amount' => ['required','min:1','max:99999', 'numeric'],
+            'type'   => ['required', 'in:add,remove']
+        ];
+    }
 }
