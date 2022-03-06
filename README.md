@@ -1,64 +1,44 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://appmax.com.br" target="_blank"><img src="https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/229240497_1910433002463370_3980053956259028089_n.png?_nc_cat=105&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH9ppgGX4ySIjTgfyVbzlh4_Ag4VtQHqxr8CDhW1AerGrSVqeJjmOIqXIAvuZC4jbtdnDVq58Ljjr8h5BePeQJs&_nc_ohc=qC3SGW7AQr8AX-HFycG&_nc_ht=scontent-gru2-2.xx&oh=00_AT_nSpP_gngErdHKIEpwRBCv3LP_lhtQ0aChI0T3ZCiiTg&oe=62296A03" width="200"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Desafio Técnico Full-stack
 
-## About Laravel
+Projeto desenvolvido para o processo seletivo da Appmax.
+> Documentação: [https://documenter.getpostman.com/view/19595551/UVkvJsNM](https://documenter.getpostman.com/view/19595551/UVkvJsNM)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Criar uma API para realizar as seguintes ações:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Cadastro de produtos com os seguintes campos obrigatórios.
+- Movimentação de produtos.
+- Histórico.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Tecnologias utilizadas
 
-## Learning Laravel
+- **PHP**: 8.1.3
+- **Laravel**: 9.3.1
+- **Composer**: 2.2.7
+- **Node**: v16.13.2
+- **NPM**: 8.5.3
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Instalação
+> Antes de iniciar, crie um banco de dados. Neste exemplo estamos utilizando o nome app-7rz2ot9w, mas fica a vontade para usar o nome que preferir.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+*1. Clonar repositório*
+```
+git clone https://github.com/Colorio/app-7rz2ot9w.git
+```
+*2. Acessar pasta do projeto*
+```
+cd app-7rz2ot9w.git
+```
+*3. Criar arquivo .env (Windows | macOS - Linux)*
+```
+copy .env.example .env | cp .env.example .env
+```
+*4. Intalar*
+```
+composer install
+```
+*5. Executar as migrations*
+```
+php artisan migrate
+```
