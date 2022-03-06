@@ -16,8 +16,9 @@ class InventoryController extends Controller
 
         if(empty($data)){
             return response()->json([
-                "status" => "error",
-                "errors" => ["sku" => json_encode(["No inventory data"])]
+                "status"        => "error",
+                "documentation" => env("APP_URL_API", "localhost:8000"),
+                "errors"        => ["sku" => json_encode(["No inventory data"])]
             ]);
         }
 
@@ -26,8 +27,9 @@ class InventoryController extends Controller
         if ($validator->fails()){
             $errors = $validator->errors()->messages();           
             return response()->json([
-                "status" => "error",
-                "errors" => array_map("json_encode", $errors)
+                "status"        => "error",
+                "documentation" => env("APP_URL_API", "localhost:8000"),
+                "errors"        => array_map("json_encode", $errors)
             ]);
         }
 
@@ -56,8 +58,9 @@ class InventoryController extends Controller
 
         if(empty($data)){
             return response()->json([
-                "status" => "error",
-                "errors" => ["sku" => json_encode(["No inventory data"])]
+                "status"        => "error",
+                "documentation" => env("APP_URL_API", "localhost:8000"),
+                "errors"        => ["sku" => json_encode(["No inventory data"])]
             ]);
         }
         
@@ -67,8 +70,9 @@ class InventoryController extends Controller
         if ($validator->fails()){
             $errors = $validator->errors()->messages();           
             return response()->json([
-                "status" => "error",
-                "errors" => array_map("json_encode", $errors)
+                "status"        => "error",
+                "documentation" => env("APP_URL_API", "localhost:8000"),
+                "errors"        => array_map("json_encode", $errors)
             ]);
         }  
 
@@ -80,8 +84,9 @@ class InventoryController extends Controller
 
         if($request["amount"] == 0){
             return response()->json([
-                "status" => "error",
-                "errors" => ["amount" => json_encode(["This amount is already {$inventory->amount}"])]
+                "status"        => "error",
+                "documentation" => env("APP_URL_API", "localhost:8000"),
+                "errors"        => ["amount" => json_encode(["This amount is already {$inventory->amount}"])]
             ]);
         }
         
@@ -92,8 +97,9 @@ class InventoryController extends Controller
         $product = Product::where("sku", $sku)->first();
         if(!isset($product->id)){
             return response()->json([
-                "status" => "error",
-                "errors" => ["sku" => json_encode(["Sku not found"])]
+                "status"        => "error",
+                "documentation" => env("APP_URL_API", "localhost:8000"),
+                "errors"        => ["sku" => json_encode(["Sku not found"])]
             ]);
         }
         return Inventory::where("sku", $sku)->with('history')->get()->first();

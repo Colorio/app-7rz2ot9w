@@ -29,8 +29,9 @@ class ProductsController extends Controller
         if ($validator->fails()){
             $errors = $validator->errors()->messages();           
             return response()->json([
-                "status" => "error",
-                "errors" => array_map("json_encode", $errors)
+                "status"        => "error",
+                "documentation" => env("APP_URL_API", "localhost:8000"),
+                "errors"        => array_map("json_encode", $errors)
             ]);
         }
 
@@ -56,8 +57,9 @@ class ProductsController extends Controller
 
         if(empty($data)){
             return response()->json([
-                "status" => "error",
-                "errors" => ["sku" => json_encode(["No product data"])]
+                "status"        => "error",
+                "documentation" => env("APP_URL_API", "localhost:8000"),
+                "errors"        => ["sku" => json_encode(["No product data"])]
             ]);
         }
 
@@ -67,8 +69,9 @@ class ProductsController extends Controller
         $product = Product::where("sku", $sku)->first();
         if(!isset($product->id)){
             return response()->json([
-                "status" => "error",
-                "errors" => ["sku" => json_encode(["Sku not found"])]
+                "status"        => "error",
+                "documentation" => env("APP_URL_API", "localhost:8000"),
+                "errors"        => ["sku" => json_encode(["Sku not found"])]
             ]);
         }
 
@@ -83,8 +86,9 @@ class ProductsController extends Controller
         }
         
         return response()->json([
-            "status" => "error",
-            "errors" => ["No updated data"]
+            "status"        => "error",
+            "documentation" => env("APP_URL_API", "localhost:8000"),
+            "errors"        => ["No updated data"]
         ]);
     }
 
@@ -92,8 +96,9 @@ class ProductsController extends Controller
         $product = Product::get()->where("sku", $sku)->first();
         if(!isset($product->id)){
             return response()->json([
-                "status" => "error",
-                "errors" => ["sku" => json_encode(["Sku not found"])]
+                "status"        => "error",
+                "documentation" => env("APP_URL_API", "localhost:8000"),
+                "errors"        => ["sku" => json_encode(["Sku not found"])]
             ]);
         }
 

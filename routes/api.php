@@ -29,6 +29,6 @@ Route::namespace('\App\Http\Controllers\Api')->group(function(){
     Route::get('inventoryHistory/{sku}', "InventoryController@history");
 
     Route::any('{path}', function() {
-	    return response()->json(["status" => 'error', "errors" => ['404: ENDPOINT inválido. Verique os dados ou entre em contato (54) 99947-9564']], 404);
+	    return response()->json(["status" => 'error', "documentation" => env("APP_URL_API", "localhost:8000"), "errors" => ['404: ENDPOINT inválido. Verique os dados ou entre em contato (54) 99947-9564']], 404);
 	})->where('path', '.*');
 });
