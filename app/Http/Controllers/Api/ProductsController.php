@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Inventory;
+use App\Models\InventoryHistory;
 use Illuminate\Support\Facades\Validator;
 
 class ProductsController extends Controller
@@ -33,8 +34,15 @@ class ProductsController extends Controller
             ]);
         }
 
-        $product_id = Product::create($data)->id;
-        Inventory::create(["sku" => $data['sku'], "amount" => $amount])->id;
+        $product_id   = Product::create($data)->id;
+        $inventory_id = Inventory::create(["sku" => $data['sku'], "amount" => $amount])->id;
+        
+        InventoryHistory::create([
+            "inventory_id" => $inventory_id,
+            "amount"       => abs($amount),
+            "type"         => "initial",
+            "created_at"   => now()
+        ]);
         
         return response()->json([
             "status"  => "created",

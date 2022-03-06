@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Inventory;
+use App\Models\InventoryHistory;
 use Illuminate\Support\Facades\Validator;
 
 class InventoryController extends Controller
@@ -37,8 +38,15 @@ class InventoryController extends Controller
         $inventory->amount = self::limitValues(($inventory->amount + $data['amount']), 0, 99999);
         $inventory->save();
 
+        InventoryHistory::create([
+            "inventory_id" => $inventory->id,
+            "amount"       => abs($data["amount"]),
+            "type"         => $data["type"],
+            "created_at"   => now()
+        ]);
+
         return response()->json([
-            "status" => "updated",
+            "status"  => "updated",
             "product" => $inventory
         ]);
     }
@@ -78,6 +86,17 @@ class InventoryController extends Controller
         }
         
         return self::maintenance($request);
+    }
+
+    static function history($sku){
+        $product = Product::where("sku", $sku)->first();
+        if(!isset($product->id)){
+            return response()->json([
+                "status" => "error",
+                "errors" => ["sku" => json_encode(["Sku not found"])]
+            ]);
+        }
+        return Inventory::where("sku", $sku)->with('history')->get()->first();
     }
 
     static function limitValues($value, $min, $max){

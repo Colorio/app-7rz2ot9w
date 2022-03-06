@@ -19,4 +19,8 @@ class Inventory extends Model
             'type'   => ['required', 'in:add,remove']
         ];
     }
+
+    public function history(){
+        return $this->hasMany(InventoryHistory::class)->orderBy('created_at','DESC');
+    }
 }
